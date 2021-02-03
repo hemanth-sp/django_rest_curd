@@ -5,4 +5,4 @@ venv/
 vir_envv/
 migrations/
 log/
-.gitignore
+db.sqlite3

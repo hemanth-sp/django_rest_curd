@@ -1,0 +1,8 @@
+*.pyc
+bash.exe.stackdump
+.vscode/
+venv/
+vir_envv/
+migrations/
+log/
+.gitignore

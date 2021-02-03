@@ -11,7 +11,7 @@ class StudentTests(APITestCase):
             "school": "govt",
         }
         self.response = self.client.post(
-            reverse('students_list_or_create'),
+            reverse('curd:students-list'),
             self.data,
             format="json")
 
@@ -22,7 +22,7 @@ class StudentTests(APITestCase):
         self.assertEqual(Student.objects.get().name, 'suresh')
 
     def test_api_list_students(self):
-        url = reverse('students_list_or_create')
+        url = reverse('curd:students-list')
         response = self.client.get(url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(Student.objects.count(), 1)
@@ -30,7 +30,7 @@ class StudentTests(APITestCase):
     def test_api_can_get_a_student(self):
         student = Student.objects.get()
         response = self.client.get(
-            reverse('students_get_or_update',
+            reverse('curd:students-detail',
             kwargs={'pk': student.id}), format="json"
         )
         self.assertEqual(response.status_code, status.HTTP_200_OK)
@@ -44,7 +44,7 @@ class StudentTests(APITestCase):
             "school": "govt",
         }
         response = self.client.put(
-            reverse('students_get_or_update',
+            reverse('curd:students-detail',
             kwargs={'pk': student.id}), data=new_data, format="json"
         )
         self.assertEqual(response.status_code, status.HTTP_200_OK)
@@ -53,7 +53,7 @@ class StudentTests(APITestCase):
     def test_api_can_delete_a_student(self):
         student = Student.objects.get()
         response = self.client.delete(
-            reverse('students_get_or_update',
+            reverse('curd:students-detail',
             kwargs={'pk': student.id}), format="json"
         )
         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)

@@ -25,7 +25,7 @@ class StudentTests(APITestCase):
         url = reverse('curd:students-list')
         response = self.client.get(url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(Student.objects.count(), 1)
+        self.assertEqual(Student.objects.count(), 2)
 
     def test_api_can_get_a_student(self):
         student = Student.objects.get()

@@ -5,6 +5,6 @@ using
 
 
 
-
+explanation https://medium.com/djangotube/django-rest-api-curd-example-61c3a29b22ed
 
 http://127.0.0.1:8000/api/students

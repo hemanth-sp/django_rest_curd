@@ -1,9 +1,6 @@
-from rest_framework.views import APIView
 from curd.serializers import StudentSerializers
 from curd.models import Student
-from rest_framework import status, permissions, generics
-from rest_framework.response import Response
-from django.shortcuts import get_object_or_404
+from rest_framework import permissions, generics
 
 
 class StudentCurd(generics.ListCreateAPIView):
